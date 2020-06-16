@@ -1,6 +1,10 @@
 import { mount } from "@vue/test-utils";
 import AppButton from "@/components/button.vue";
 
+// shallowMount和mount的区别？
+// shallowMount是浅渲染，只挂载一个组件，不渲染子组件
+// 如果一个组件包含很多子组件的话，重复渲染子组件可能会让我们的测试变慢
+
 describe("button.vue", () => {
   // 每个it测试一个小项目
 
@@ -42,6 +46,16 @@ describe("button.vue", () => {
     wrapper.find("button").trigger('click')
     expect(vm.count).toBe(1);
 
-    wrapper.destroy()
+    wrapper.destroy();
   })
+
+  // 使用 nextTick 编写异步测试代码
+  // 使用async/await
+  // it('updates text', async () => {
+  //   const wrapper = mount(Component)
+  //   await wrapper.trigger('click')
+  //   expect(wrapper.text()).toContain('updated')
+  //   await wrapper.trigger('click')
+  //   wrapper.text().toContain('some different text')
+  // })
 });
