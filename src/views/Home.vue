@@ -12,6 +12,11 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  created(){
+    this.axios.post("/sinan30/account/getIndustry1Items").then(res => {
+      
+    })
   }
 }
 </script>
